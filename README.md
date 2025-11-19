@@ -1,7 +1,7 @@
 🔷 BITB-Microsoft — Fake Microsoft Login + Discord Webhook
 
 <p align="center">
-  <img src="assets/Advanced System Care.gif" alt="Demo" />
+  <img src="assets/demo.gif" alt="Demo" />
 </p>
 
 This project implements a Microsoft-style fake login window using Browser-in-the-Browser (BITB) for research, education, and security awareness testing.
