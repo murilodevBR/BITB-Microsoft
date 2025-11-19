@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloco de Notas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            background: #34495e;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #415b76;
+        }
+
+        .editor-container {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        textarea {
+            flex: 1;
+            width: 100%;
+            padding: 20px;
+            font-size: 16px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            resize: none;
+            outline: none;
+            background: white;
+            line-height: 1.6;
+        }
+
+        textarea:focus {
+            border-color: #3498db;
+        }
+
+        .status-bar {
+            background: #ecf0f1;
+            padding: 8px 20px;
+            font-size: 12px;
+            color: #7f8c8d;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>📝 Bloco de Notas</h1>
+        <div class="toolbar">
+            <button class="btn" onclick="limpar()">Limpar</button>
+            <button class="btn" onclick="copiar()">Copiar</button>
+            <button class="btn" onclick="baixar()">Baixar</button>
+        </div>
+    </div>
+
+    <div class="editor-container">
+        <textarea id="notepad" placeholder="Comece a escrever suas notas aqui...">
+
+                Torch 🔦
+                
+                http://xmh57jrknzkhv6y3ls3ubitzfqnkrwxhopf5aygthi7d6rplyvk3noyd.onion/
+                
+                As one of the oldest search engines on the Tor network, Torch offers a vast index of .onion sites. It provides
+                uncensored and unfiltered search results, ensuring user anonymity by preventing web tracking.
+                
+                Ahmia 🔍
+                
+                http://juhanurmihxlp77nkq76byazcldy2hlmovfu2epvl5ankdibsot4csyd.onion/
+                
+                Ahmia bridges the surface web and the dark web, allowing users to search for .onion sites through regular browsers. It
+                filters out abusive material, aiming to make dark web exploration safer.
+                
+                DuckDuckGo 🦆
+                
+                https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                
+                Known for its privacy-centric approach, DuckDuckGo doesn't track user activity. It's the default search engine on the
+                Tor browser, providing a familiar interface for those venturing into the dark web.
+                
+                The Hidden Wiki 📚
+                
+                http://zqktlwiuavvvqqt4ybvgvi7tyo4hjl5xgfuvpdf6otjiycgwqbym2qad.onion/wiki/
+                
+                Serving as a directory rather than a traditional search engine, The Hidden Wiki categorizes and lists .onion links,
+                aiding users in navigating the dark web. It applies filters to block many scam sites, though some illicit content may
+                still be present.
+                
+                Haystak 🪙
+                
+                http://haystak5njsmn2hqkewecpaxetahtwhsbsa64jom2k22z5afxhnpxfid.onion/
+                
+                Boasting over 1.5 billion indexed pages, Haystak offers extensive search capabilities on the Tor network. It emphasizes
+                user privacy by not tracking data and provides a premium version with additional features.
+                
+                Not Evil 🚫
+                
+                http://hss3uro2hsxfogfq.onion/
+                
+                With a name inspired by Google's former motto, Not Evil indexes millions of .onion sites without tracking user activity
+                or displaying ads. It relies on community volunteers to report false results and abusive sites.
+
+                .::Erotic 18+::.
+                SharePass: http://tklxxs3rdzdjppnl.onion/sharepass/
+                Girls Released: http://k4jmdeccpnsfe43c.onion/
+                Gallery: http://54dgeda4ik6iypui.onion/
+                The Pink Meth [Mirror]: http://pinkmethuylnenlz.onion/
+                Klixen: http://2fqgjzbb2h7yevom.onion/klixen/
+                EroDir: http://orsxvca7glswueo7.onion/
+                VOR-COM: http://mmgh3rqeswrlgzdr.onion/
+                http://shitscats6qomwxm.onion/
+                http://opnju4nyz7wbypme.onion/weblog/
+                http://ocu3errhpxppmwpr.onion/
+                http://nope7beergoa64ih.onion/ –
+                http://5fpp2orjc2ejd2g7.onion/ –
+                http://brgj6sh5sixad3ze.onion/ –
+                http://prnstmrpfkgkaw5v.onion/ –
+                http://cowikieegygxfhnh.onion/ –
+                http://4limjlssg7qdaweh.onion/ –
+                http://scream-bitch.onion
+                http://wtwfzc6ty2s6x4po.onion/ –
+                http://exwljei3bfvchv6p.onion/ –
+                http://xplayyyyyirxui4n.onion/ – Xplay
+            
+
+
+                http://abyssdyh5kaskqql.onion/ – Drugs – The French Connection
+                http://playboyb2af45y45.onion/ – Drugs – Playboy Journal
+                http://si4bm7a6rbxgpjzg.onion/ – Drugs – Now it’s illegal
+                http://pharma5jbbmwjoo3.onion/ – Drugs – Onion Pharma
+                http://drugss5mif4vrbws.onion/ – Drugs – Drugstore
+                http://cocain2xkqiesuqd.onion/ – Drugs – Cocain Market
+                http://eucannapggbtppdd.onion/ – Drugs – EuCann – First class cannabis healthcare
+                http://dedopedhvmcsxylb.onion/ – Drugs – DeDope
+                http://psyched25pydrgul.onion/ – Drugs – Brainmagic
+                http://cannabi4ewmalq3g.onion/ – Drugs – CannabisUK
+                http://weedsragjdyuimdm.onion/ – Drugs – Weed store
+                http://cocahze7fqy4qwwx.onion/ – Drugs – EuCocain
+                http://smokerhv5hlklzh2.onion/ – Drugs – Smokeables
+                http://weed46fkpfzc3lvi.onion/ – Drugs – Eviano Crew luxury weed
+                http://maghrebwzbkucctg.onion/ – Drugs – MaghrebHashish Store
+                http://chemspain7iw2zby.onion/ – Drugs – ChemSpain
+                http://eucannapggbtppdd.onion – Drugs – EuCanna First class Cannabis HealthCare
+                http://limac6qxk43s3usf.onion/ – Drugs – Best Peruvian Cocaine on the Market
+                http://doctordvoxnnammn.onion – Drugs – Doctor Drug
+                http://auw6fzx756f6gqcd.onion/ – Drugs – DeDope German Weed Store
+                http://pharmacpr5lpfin5.onion/ – Drugs – BitPharma
+                http://do7dt6vuskgrz3sa.onion – Drugs – 24HoursPPC
+                http://bitphar76n5t3qag.onion/ – Drugs – BitPharma
+                http://smokerhv5hlklzh2.onion – Drugs – Smokeables! Finest Organic Cannabis, shipping from the USA
+                http://eucannapggbtppdd.onion – Drugs – EuCanna First class Cannabis HealthCare
+                http://mollyworh4524fop.onion/ – Drugs – Mollyworld No 1 provider of Crystal or Pills
+                http://weed46fkpfzc3lvi.onion – Drugs – Ecviano Crew Luxury Weed Wholesale
+                http://nlgrowc3xywaj2zn.onion/ – Drugs – NLGrowers
+                http://7uvijlsswycvih2p.onion/ – Drugs – iCocaine
+                
+                
+                DuckDuckGo Search Engine: http://3g2upl4pq6kufc4m.onion/
+                TORCH '96 Tor Search Engine: http://xmh57jrzrnw6insl.onion/
+                Uncensored Hidden Wiki: http://zqktlwi4fecvo6ri.onion/wiki/index.php/Main_Page
+                Onion URL Repository: http://32rfckwuorlf4dlv.onion/
+                Dark Nexus: http://e266al32vpuorbyg.onion/bookmarks.php
+                Seeks Search: http://5plvrsgydwy2sgce.onion/
+                Gateway to Freenet: http://2vlqpcqpjlhmd5r2.onion/
+                Is It Up?: http://nlmymchrmnlmbnii.onion/
+                ParaZite: http://kpynyvym6xqi7wz2.onion/links.html
+                Onion Wiki: http://wiki5kauuihowqi5.onion/
+                TOR Wiki: http://torwikignoueupfm.onion/index.php?title=Main_Page
+                The Hidden Wiki: http://kpvz7ki2v5agwt35.onion
+                Tor Project: Anonymity Online: http://idnxcnkne4qt76tg.onion/
+                TorLinks: http://torlinkbgs6aabns.onion/
+                Hidden Wiki .Onion Urls: http://jh32yv5zgayyyts3.onion/
+                Hidden Wiki '96 Tor Wiki: http://wikitjerrta4qgz4.onion/
+                Anonet Webproxy: http://xdagknwjc7aaytzh.onion/
+                All You'92re Base: http://3fyb44wdhnd2ghhl.onion/
+                TorProject Archive: http://j6im4v42ur6dpic3.onion/
+                TorProject Media: http://p3igkncehackjtib.onion/
+                Tor Search: http://kbhpodhnfxl3clb4.onion
+                Cipolla 2.0 [Italian]: http://cipollatnumrrahd.onion/
+                Evil Wiki: http://wvk32thojln4gpp4.onion/wiki/index.php/Main_Page
+                Torle Search: http://torleruteqdqqqqa.onion/
+                TorDir: http://dppmfxaacucguzpc.onion/
+                Hidden wiki http://zqktlwi4fecvo6ri.onion/wiki/index.php/Main_Page
+                Uncensored Hidden Wiki - http://uhwikih256ynt57t.onion/wiki/index.php/Main_Page
+                Tor, Duck Duck Go, and The Hidden Wiki -http://j3capgi3drf52m3i.onion/
+                Onion search engine: http://ndj6p3asftxboa7j.onion/
+                .::Financial and Markets::.
+                TorBroker: http://torbrokerge7zxgq.onion/
+                Bitcoin Fog: http://fogcore5n3ov3tui.onion/
+                Easy escrow service: http://samsgdtwz6hvjyu4.onion
+                EasyCoin: http://easycoinsayj7p5l.onion/
+                WeBuyBitcoins: http://jzn5w5pac26sqef4.onion/
+                OnionWallet: http://ow24et3tetp6tvmk.onion/
+                Western Union Exploit: http://qc7ilonwpv77qibm.onion/
+                ccPal Store: http://3dbr5t4pygahedms.onion/
+                High Quality Euro Replicas: http://y3fpieiezy2sin4a.onion/
+                Counterfeit USD: http://qkj4drtgvpm7eecl.onion/
+                Apple Electronics http://applesavbbloawcm.onion/
+                High Quality Tutorials: http://lw4ipk5choakk5ze.onion/raw/4588/
+                Counterfeit USD/EUR: http://usjudr3c6ez6tesi.onion/
+                PayPal and credit: http://tgssx32xnahbto7b.onion/
+                Assassination Service: http://cthulhuuap7ch47k.onion
+                The Bitcoin Laundry: http://rxbnonlo56vhmkk2.onion/
+                TGM: http://zzq7gpluliw6iq7l.onion/threadlist.php?
+                Tor Market Board: http://6w6vcynl6dumn67c.onion/
+                Project Evil: http://wvk32thojln4gpp4.onion/
+                Discounted electronics goods: http://5mvm7cg6bgklfjtp.onion/
+                Hitman Service: http://lw4ipk5choakk5ze.onion/raw/evbLewgkDSVkifzv8zAo/
+                TOR Girls: http://nr6juudpp4as4gjg.onion/torgirls.html
+                UK Guns and Ammo: http://tuu66yxvrnn3of7l.onion/
+                Used Tor Guns: http://nr6juudpp4as4gjg.onion/torguns.htm
+                Amazon Business: http://ucx7bkbi2dtia36r.onion/
+                Tor Technology: http://nr6juudpp4as4gjg.onion/tor.html
+                Hidden BetCoin: http://hbetshipq5yhhrsd.onion/
+                CStore Carded Store: http://cstoreav7i44h2lr.onion/
+                Carded Store: http://e2qizoerj4d6ldif.onion/
+                Data-Bay: http://jvrnuue4bvbftiby.onion/
+                Hackintosh: http://bgkitnugq5ef2cpi.onion/
+                EuroArms: http://vlp4uw5ui22ljlg7.onion/
+                Advantage Products: http://b4vqxw2j36wf2bqa.onion/
+                Hitman Network: http://ybp4oezfhk24hxmb.onion/
+                Marianic Technology Services: http://mts7hqqqeogujc5e.onion/
+                Mobile Store: http://mobil7rab6nuf7vx.onion/
+                MSR Shop: http://54flq67kqr5wvjqf.onion/
+                Old Man Fixer'92s Fixing Services: http://yth5q7zdmqlycbcz.onion/
+                PC Shop: http://matrixtxri745dfw.onion/neo/uploads/MATRIXtxri745dfwONION_130827231336IPA_pc.png
+                Samsung Store: http://storegsq3o5mfxiz.onion/
+                Sheep Marketplace: http://sheep5u64fi457aw.onion/
+                Tor BetCoin: http://nr6juudpp4as4gjg.onion/betcoin.htm
+                Tor Web Developer: http://qizriixqwmeq4p5b.onion/
+                UK Passports: http://vfqnd6mieccqyiit.onion/
+                US Fake ID Store: http://en35tuzqmn4lofbk.onion/
+                USA Citizenship: http://xfnwyig7olypdq5r.onion/
+                iLike Help Guy: http://uybu3melulmoljnd.onion/
+                Network Consulting and Software Development: http://dbmv53j45pcv534x.onion/
+                Quick Solution (Hitman): http://lw4ipk5choakk5ze.onion/raw/4585/
+                Tyner MSR Store: http://nr6juudpp4as4gjg.onion/tynermsr.htm
+                Onion Identity Services: http://abbujjh5vqtq77wg.onion/
+                EuroGuns: http://2kka4f23pcxgqkpv.onion/
+                Buy cheap iPhones: http://xyt4inlajwmn3gfb.onion/
+                Android Store: http://oh2s6ywmaxtgcj25.onion/store.html
+                Cheap Stolen Android Phones: http://3pkm74bnuxdbaxlr.onion
+                Cheap Giftcards http://steam7qrjknfhmf6.onion/
+                .::Drugs::.
+                Black Market Reloaded: http://5onwnspjvuk7cwvk.onion/
+                Black Market Reloaded Forums: http://fec33nz6mhzd54zj.onion/index.php
+                Atlantis Marketplace: http://atlantisrky4es5q.onion/
+                Atlantis Marketplace Forums: http://atlmlxbk2mbupwgr.onion/
+                Silk Road Marketplace: http://silkroadvb5piz3r.onion/silkroad/home
+                Silk Road Forums: http://dkn255hz262ypmii.onion/
+                Drug Market: http://4yjes6zfucnh7vcj.onion/
+                Kamagra for BitCoins: http://k4btcoezc5tlxyaf.onion/
+                EuCanna: http://rso4hutlefirefqp.onion/
+                Peoples Drug Store: http://newpdsuslmzqazvr.onion
+                Smokeables: http://smoker32pk4qt3mx.onion/
+                CannabisUK: http://fzqnrlcvhkgbdwx5.onion/
+                DeDope: http://kbvbh4kdddiha2ht.onion/
+                BitPharma: http://s5q54hfww56ov2xc.onion/
+                Brainmagic: http://ll6lardicrvrljvq.onion/
+                NLGrowers: http://25ffhnaechrbzwf3.onion/
+                .::Hosting::.
+                Image Uploader: http://matrixtxri745dfw.onion/
+                PasteThis [Tor based Pastebin]: http://lw4ipk5choakk5ze.onion/
+                Gittor: http://wzrtr6gpencksu3d.onion:8080/
+                Free Hosting: http://nr6juudpp4as4gjg.onion/
+                Liberty'92s Hackers Hosting Service: http://tklxxs3rdzdjppnl.onion/
+                Matrix Trilogy: http://matrixtxri745dfw.onion/
+                Osiris Storage: http://tk4chjqopurvzmiu.onion/
+                TorShops: http://shopsat2dotfotbs.onion/
+                .::Blogs::.
+                Beneath VT '96 Exploring Virginia Tech'92s Steam Tunnels and Beyond: http://74ypjqjwf6oejmax.onion/
+                Deep Web Radio: http://76qugh5bey5gum7l.onion/
+                Encyclopedia Dramatica: http://edramalpl7oq5npk.onion/Main_Page
+                Hushbox: http://ih4pgsz3aepacbwl.onion/
+                Dark Like My Soul: http://ad52wtwp2goynr3a.onion/#
+                FreeFor: http://tns7i5gucaaussz4.onion/
+                Scientology Archive: http://gdkez5whqhpthb4d.onion/
+                All the Latest News for Tor: http://newsiiwanaduqpre.onion/
+                Michael Blizek: http://5vppavyzjkfs45r4.onion/
+                AYPSELA News: http://7ueo7ahq2xlpwx7q.onion/
+                Blog About Stories: http://7hk64iz2vn2ewi7h.onion/
+                Mike Tigas: http://tigas3l7uusztiqu.onion/
+                Sam Whited: http://mpf3i4k43xc2usxj.onion/
+                An Open Letter to Revolutionaries: http://7w2rtz7rgfwj5zuv.onion/
+                Totse 2: http://3c3bdbvhb7j6yab2.onion/
+                Lucky Eddie'92s Home: http://4fvfamdpoulu2nms.onion/
+                Fravia'92s Web Searching Lore: http://nwycvryrozllb42g.onion/searchlores/index.htm
+                Ittalian Personal Blog: http://wfi2sm5thn4piicq.onion/myblog/
+                Artim'92s Little Onionworld: http://socks3sjdk3xj2d4.onion/
+                OnionNews: http://newsiiwanaduqpre.onion/
+                .::Forums and Chans::.
+                Onion Forum 2.0 Renewed: http://2gxxzwnj52jutais.onion/phpbb/index.php
+                Onii-Chan: http://3fyb44wdhnd2ghhl.onion/ib/
+                Jisko: http://bx7zrcsebkma7ids.onion
+                Twitter Clone: http://npdaaf3s3f2xrmlo.onion/
+                HackBB: http://jv7aqstbyhd5hqki.onion
+                Freenet FMS Forums: http://xdagknwjc7aaytzh.onion/20/http/1.4.7.9/forummain.htm
+                SciBay Forums: http://sbforumaz7v3v6my.onion/
+                DeepWeb: http://kpmp444tubeirwan.onion/
+                StaTorsNet: http://r5c2ch4h5rogigqi.onion/
+                The Open Mic: http://jahfuffnfmytotlv.onion/
+                The Anonymous GTS Forum: http://ocu3errhpxppmwpr.onion
+                German Anti Censorship Community: http://germanyhusicaysx.onion/search/recent/
+                Safe Port Forum: http://spofoh4ucwlc7zr6.onion/index.php
+                Tor Carding Forms + Market: http://nifgk5szbodg7qbo.onion
+                OnionForum 3.0: http://t4is3dhdc2jd4yhw.onion/
+                TorChan: http://zw3crggtadila2sg.onion/imageboard/
+                .::Email and Messaging::.
+                Swiss Email: http://bitmailendavkbec.onion
+                Anonymous E-mail Sevice: http://365u4txyqfy72nul.onion/
+                SMS4TOR: http://sms4tor3vcr2geip.onion/
+                NoteBin: http://notestjxctkwbk6z.onion/
+                The Tor Mail Box: http://torbox3uiot6wchz.onion/
+                Blue Matrix Chat: http://u6lyst27lmelm6oy.onion/index.php
+                Autistici/Inventati: http://wi7qkxyrdpu5cmvr.onion/
+                Hell Online: http://u4uoz3aphqbdc754.onion/
+                URSSMail: http://f3ljvgyyujmnfhvi.onion/
+                .::Political::.
+                Bugged Planet: http://6sgjmi53igmg7fm7.onion/index.php?title=Main_Page
+                Fairie Underground: http://faerieuaahqvzgby.onion/
+                Kavkaz Center: http://2r2tz6wzqh7gaji7.onion/
+                The New Yorker Strongbox: http://tnysbtbxsf356hiy.onion/
+                Example Rendezvous Points Page: http://duskgytldkxiuqc6.onion/
+                The Intel Exchange Forum: http://rrcc5uuudhh4oz3c.onion/
+                A7B Blog: http://opnju4nyz7wbypme.onion/weblog/index.html
+                Common Sense by Thomas Paine: http://duskgytldkxiuqc6.onion/comsense.html
+                Destination Unknown: http://nwycvryrozllb42g.onion/
+                Wiki Leaks: http://zbnnr7qzaxlk5tms.onion/
+                .::Hacking and Warez::.
+                SALT: http://salted7fpnlaguiq.onion/
+                Itanimulli: http://yj5rbziqttulgidy.onion/
+                Delta Initiative: http://bbxdfsru7lmmbj32.onion/marketplace/
+                Rent-A-Hacker: http://2ogmrlfzdthnwkez.onion/
+                GTF Greek Tor Forum: http://5xki35vc4g5ts6gc.onion
+                D0XBIN: http://doxbinumfxfyytnh.onion/
+                Hidden TeamViewer: http://qw7rh24kakedqupf.onion.lu
+                The Nowhere Server: http://2gxxzwnj52jutais.onion/
+                The Pirate Bay: http://jntlesnev5o7zysa.onion/
+                The Pirate Bay [Official]: http://uj3wazyk5u4hnvtk.onion/
+                Tor Library: http://am4wuhz3zifexz5u.onion/
+                Music Downloads: http://wuvdsbmbwyjzsgei.onion/
+                Gift cards: http://tgssx32xnahbto7b.onion/
+                Apple Warez http://applesavbbloawcm.onion
+                Lolicore and Speedcore Music: http://lolicore75rq3tm5.onion/
+                Ebooks: http://xfmro77i3lixucja.onion/
+                20th Century Western Music Recordings and Scores: http://vt27twhtksyvjrky.onion/
+                Pony at Noisebridge: http://2ygbaoezjdmacnro.onion/
+                Imperial Library of Trantor: http://xfmro77i3lixucja.onion/
+                Jotunbane'92s Reading Club: http://c3jemx2ube5v5zpg.onion/
+                .::Erotic 18+::.
+                SharePass: http://tklxxs3rdzdjppnl.onion/sharepass/
+                Girls Released: http://k4jmdeccpnsfe43c.onion/
+                Gallery: http://54dgeda4ik6iypui.onion/
+                The Pink Meth [Mirror]: http://pinkmethuylnenlz.onion/
+                Klixen: http://2fqgjzbb2h7yevom.onion/klixen/
+                EroDir: http://orsxvca7glswueo7.onion/
+                VOR-COM: http://mmgh3rqeswrlgzdr.onion/
+                .::Non-English::.
+                Deutschland im Deep Web: http://germanyhusicaysx.onion
+                Das ist Deutschland hier 2.0: http://ffi5v46ttwgx3fby.onion/
+                PAIS: http://paisleli66axejos.onion/
+                Russian Onion Union: http://runionv62ul3roit.onion/
+                Russian Community and Market: http://runionv62ul3roit.onion
+                PoliceTrack: http://ptrackcp2noqu5fh.onion/
+                Amberoad: http://amberoadychffmyw.onion
+                R2D2: http://r2d2akbw3jpt4zbf.onion
+                RAMP: http://ramp2bombkadwvgz.onion
+                DeepBlog: http://xzzpowtjlobho6kd.onion/wordpress/
+                French Deep Web: http://ocbh4hoqs37unvv6.onion
+        </textarea>
+    </div>
+
+    <div class="status-bar">
+        <span id="charCount">0 caracteres</span>
+        <span id="wordCount">0 palavras</span>
+    </div>
+
+    <script>
+        const textarea = document.getElementById('notepad');
+        const charCount = document.getElementById('charCount');
+        const wordCount = document.getElementById('wordCount');
+
+        textarea.addEventListener('input', () => {
+            const text = textarea.value;
+            charCount.textContent = `${text.length} caracteres`;
+
+            const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+            wordCount.textContent = `${words.length} palavras`;
+        });
+
+        function limpar() {
+            if (textarea.value && !confirm('Deseja realmente limpar todo o texto?')) {
+                return;
+            }
+            textarea.value = '';
+            textarea.dispatchEvent(new Event('input'));
+            textarea.focus();
+        }
+
+        function copiar() {
+            if (!textarea.value) {
+                alert('Não há texto para copiar!');
+                return;
+            }
+            textarea.select();
+            document.execCommand('copy');
+            alert('Texto copiado para a área de transferência!');
+        }
+
+        function baixar() {
+            if (!textarea.value) {
+                alert('Não há texto para baixar!');
+                return;
+            }
+            const blob = new Blob([textarea.value], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `notas_${new Date().toISOString().slice(0, 10)}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        textarea.focus();
+    </script>
+</body>
+
+</html>
